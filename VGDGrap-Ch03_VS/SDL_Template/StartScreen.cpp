@@ -7,8 +7,7 @@ StartScreen::StartScreen() {
 	mTopBar = new GameEntity(Graphics::SCREEN_WIDTH * 0.5f, 80.0f);
 	mPlayerOne = new Texture("1UP", "emulogic.ttf", 32, { 200, 0, 0 });
 	mPlayerTwo = new Texture("2UP", "emulogic.ttf", 32, { 200, 0, 0 });
-	//mHiScore = new Texture("HI SCORE", "emulogic.ttf", 32, { 200, 0, 0 });
-	//mHiScore = new Texture("HI SCORE", "emulogic.ttf", 32, { 200, 0, 0 });
+	
 	
 	mBottomBar = new GameEntity(Graphics::SCREEN_WIDTH * 0.5f,Graphics::SCREEN_HEIGHT * 0.7f);
 	//mNamco = new Texture("namcot", "namco__.ttf", 36, { 200, 0, 0 });
@@ -36,11 +35,11 @@ StartScreen::StartScreen() {
 	mTopBar->Parent(this);
 	mPlayerOne->Parent(mTopBar);
 	mPlayerTwo->Parent(mTopBar);
-	mHiScore->Parent(mTopBar);
+	
 
 	mPlayerOne->Position(-Graphics::SCREEN_WIDTH * 0.35f, 0.0f);
 	mPlayerTwo->Position(Graphics::SCREEN_WIDTH * 0.2f, 0.0f);
-	//mHiScore->Position(-30.0f, 0.0f);
+	
 
 	mPlayerModes = new GameEntity(Graphics::SCREEN_WIDTH * 0.5f, Graphics::SCREEN_HEIGHT * 0.55f);
 	mOnePlayerMode = new Texture("1 Player ", "emulogic.ttf", 32, { 230, 230, 230 });
@@ -77,8 +76,6 @@ StartScreen::~StartScreen() {
 	mPlayerOne = nullptr;
 	delete mPlayerTwo;
 	mPlayerTwo = nullptr;
-	//delete mHiScore;
-	//mHiScore = nullptr;
 	delete mPlayerModes;
 	mPlayerModes = nullptr;
 	delete mOnePlayerMode;
@@ -119,7 +116,6 @@ void StartScreen::Update() {
 void StartScreen::Render() {
 	mPlayerOne->Render();
 	mPlayerTwo->Render();
-	//mHiScore->Render();
 	mOnePlayerMode->Render();
 	mTwoPlayerMode->Render();
 	mCursor->Render();

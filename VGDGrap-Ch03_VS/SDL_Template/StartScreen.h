@@ -13,7 +13,7 @@ private:
 	GameEntity* mBottomBar;
 	Texture* mPlayerOne;
 	Texture* mPlayerTwo;
-	Texture* mHiScore;
+	
 
 	GameEntity* mPlayerModes;
 	Texture* mOnePlayerMode;
