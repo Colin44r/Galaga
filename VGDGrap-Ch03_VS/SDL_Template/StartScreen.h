@@ -1,6 +1,7 @@
 #pragma once
 #include "AnimatedTexture.h"
 #include "InputManager.h"
+#include "Scoreboard.h"
 
 using namespace SDLFramework;
 
@@ -10,29 +11,41 @@ private:
 	InputManager* mInputManager;
 
 	GameEntity* mTopBar;
-	GameEntity* mBottomBar;
 	Texture* mPlayerOne;
 	Texture* mPlayerTwo;
 	Texture* mHiScore;
+	Scoreboard* mPlayerOneScore;
+	Scoreboard* mPlayerTwoScore;
+	Scoreboard* mTopScore;
+
 
 	GameEntity* mPlayerModes;
 	Texture* mOnePlayerMode;
 	Texture* mTwoPlayerMode;
 	Texture* mCursor;
+	Vector2 mCursorStartPos;
+	Vector2 mCursorOffset;
+	int mSelectedMode;
+
+	GameEntity* mBottomBar;
+	Texture* mNamco;
+	Texture* mDates;
 	Texture* mRights;
-	Texture* mLTD;
-	//Texture* mNamco;
-	Texture* mTM;
-	Texture* mNintendo;
-	Texture* mUltra;
-	Texture* mTradeMark1;
-	Texture* mTradeMark2;
 
 	Texture* mLogo;
+	AnimatedTexture* mAnimatedLogo;
+
+	Vector2 mAnimationStartPos;
+	Vector2 mAnimationEndPos;
+	float mAnimationTotalTime;
+	float mAnimationTimer;
+	bool mAnimationDone;
 
 public:
 	StartScreen();
 	~StartScreen();
+
+	void ChangeSelectedMode(int change);
 
 	void Update() override;
 	void Render() override;
