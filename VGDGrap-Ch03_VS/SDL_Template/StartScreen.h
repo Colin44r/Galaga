@@ -18,7 +18,7 @@ private:
 	GameEntity* mPlayerModes;
 	Texture* mOnePlayerMode;
 	Texture* mTwoPlayerMode;
-	Texture* mCursor;
+	Texture* mQBertCursor;
 	Texture* mRights;
 	Texture* mLTD;
 	//Texture* mNamco;
@@ -27,8 +27,8 @@ private:
 	Texture* mUltra;
 	Texture* mTradeMark1;
 	Texture* mTradeMark2;
-
 	Texture* mLogo;
+	std::string QBertSpriteSheet = "QBert General Sprites.png";
 
 public:
 	StartScreen();

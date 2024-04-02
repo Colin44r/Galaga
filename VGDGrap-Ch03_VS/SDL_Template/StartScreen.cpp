@@ -44,16 +44,17 @@ StartScreen::StartScreen() {
 	mPlayerModes = new GameEntity(Graphics::SCREEN_WIDTH * 0.5f, Graphics::SCREEN_HEIGHT * 0.55f);
 	mOnePlayerMode = new Texture("1 Player ", "emulogic.ttf", 32, { 230, 230, 230 });
 	mTwoPlayerMode = new Texture("2 Player ", "emulogic.ttf", 32, { 230, 230, 230 });
-	mCursor = new Texture("Cursor.png");
+	mQBertCursor = new Texture(QBertSpriteSheet, 0,0,16,16);
 
 	mPlayerModes->Parent(this);
 	mOnePlayerMode->Parent(mPlayerModes);
 	mTwoPlayerMode->Parent(mPlayerModes);
-	mCursor->Parent(mPlayerModes);
+	mQBertCursor->Parent(mPlayerModes);
 
 	mOnePlayerMode->Position(0.0f, -35.0f);
 	mTwoPlayerMode->Position(0.0f, 35.0f);
-	mCursor->Position(-175.0, -35.0f);
+	mQBertCursor->Position(-195.0, -35.0f);
+	//mQBertCursor->Position(-195.0, -35.0f);
 
 	//mNamco->Position(Vec2_Zero);
 	mTM->Position(0.0f, -30.0f);
@@ -63,10 +64,10 @@ StartScreen::StartScreen() {
 	mUltra->Position(0.0f, 150.0f);
 	mTradeMark1->Position(0.0f, 190.0f);
 	mTradeMark2->Position(-230.0f, 230.0f);
-	mLogo->Position(100.0f, 100.0);
+	mLogo->Position(550.0f, 150.0);
 
-	mLogo->Scale(Vector2 (15.0f, 15.0f));
-
+	mLogo->Scale(Vector2 (6.5f, 6.5f));
+	mQBertCursor->Scale(Vector2(3.5f, 3.5f));
 }
 
 StartScreen::~StartScreen() {
@@ -82,8 +83,8 @@ StartScreen::~StartScreen() {
 	mOnePlayerMode = nullptr;
 	delete mTwoPlayerMode;
 	mTwoPlayerMode = nullptr;
-	delete mCursor;
-	mCursor = nullptr;
+	delete mQBertCursor;
+	mQBertCursor = nullptr;
 	//delete mNamco;
 	//mNamco = nullptr;
 	delete mLTD;
@@ -118,7 +119,7 @@ void StartScreen::Render() {
 	mPlayerTwo->Render();
 	mOnePlayerMode->Render();
 	mTwoPlayerMode->Render();
-	mCursor->Render();
+	mQBertCursor->Render();
 	mRights->Render();
 	mLTD->Render();
 	mLogo->Render();
