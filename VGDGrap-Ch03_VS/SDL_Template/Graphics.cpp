@@ -113,7 +113,7 @@ namespace SDLFramework {
 		}
 		
 		//Temporairily change background color to white!
-		SDL_SetRenderDrawColor(mRenderer, 0xFF, 0xFF, 0xFF, 0xFF); 
+	//	SDL_SetRenderDrawColor(mRenderer, 0xFF, 0xFF, 0xFF, 0xFF); 
 		int flags = IMG_INIT_PNG;
 		if (!(IMG_Init(flags) & flags)){
 			
