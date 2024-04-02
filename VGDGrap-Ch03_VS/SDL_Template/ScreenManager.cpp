@@ -20,6 +20,7 @@ ScreenManager::ScreenManager() {
 
 	mStartScreen = new StartScreen();
 	mPlayScreen = new PlayScreen();
+
 	mCurrentScreen = Start;
 }
 
@@ -28,6 +29,8 @@ ScreenManager::~ScreenManager() {
 
 	delete mStartScreen;
 	mStartScreen = nullptr;
+	delete mPlayScreen;
+	mPlayScreen = nullptr;
 }
 
 void ScreenManager::Update() {
@@ -41,15 +44,14 @@ void ScreenManager::Update() {
 
 		if (mInput->KeyPressed(SDL_SCANCODE_RETURN)) {
 			mCurrentScreen = Play;
-			std::cout << "Changing to PlayScreen";
 			mStartScreen->ResetAnimation();
 			mPlayScreen->StartNewGame();
-
 		}
 
 		break;
 	case ScreenManager::Play:
-		//This is where we would update our PlayScreen
+		mPlayScreen->Update();
+
 		if (mInput->KeyPressed(SDL_SCANCODE_ESCAPE)) {
 			mCurrentScreen = Start;
 			std::cout << "Changing to StartScreen";
@@ -71,7 +73,7 @@ void ScreenManager::Render() {
 
 		break;
 	case ScreenManager::Play:
-		//This is where we would Render our PlayScreen
+		mPlayScreen->Render();
 
 		break;
 	default:
