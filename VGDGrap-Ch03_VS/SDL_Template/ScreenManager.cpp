@@ -19,7 +19,7 @@ ScreenManager::ScreenManager() {
 	mInput = InputManager::Instance();
 
 	mStartScreen = new StartScreen();
-
+	mPlayScreen = new PlayScreen();
 	mCurrentScreen = Start;
 }
 
@@ -42,6 +42,9 @@ void ScreenManager::Update() {
 		if (mInput->KeyPressed(SDL_SCANCODE_RETURN)) {
 			mCurrentScreen = Play;
 			std::cout << "Changing to PlayScreen";
+			mStartScreen->ResetAnimation();
+			mPlayScreen->StartNewGame();
+
 		}
 
 		break;

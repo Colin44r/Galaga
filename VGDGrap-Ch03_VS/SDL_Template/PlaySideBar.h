@@ -30,6 +30,18 @@ private:
 	Scoreboard* mTotalShipsLabel;
 	int mTotalShips;
 
+	GameEntity* mFlags;
+	std::vector<Texture*> mFlagTextures;
+	int mRemainingLevels;
+	float mFlagXOffset;
+	float mFlagYOffset;
+	float mFlagTimer;
+	float mFlagInterval;
+
+	void ClearFlags();
+	void AddNextFlag();
+	void AddFlag(std::string filename, float width, int value);
+
 public:
 	PlaySideBar();
 	~PlaySideBar();
@@ -37,6 +49,7 @@ public:
 	void SetHighScore(int score);
 	void SetPlayerScore(int score);
 	void SetShip(int ships);
+	void SetLevel(int level);
 
 	void Update() override;
 	void Render() override;

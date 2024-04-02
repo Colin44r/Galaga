@@ -24,3 +24,13 @@ void PlayScreen::Update() {
 void PlayScreen::Render() {
 	mSideBar->Render();
 }
+
+void PlayScreen::StartNewGame() {
+	mSideBar->SetHighScore(30000);
+	mSideBar->SetShip(2);
+	StartNextLevel();
+}
+
+void PlayScreen::StartNextLevel() {
+	mSideBar->SetLevel(30);
+}

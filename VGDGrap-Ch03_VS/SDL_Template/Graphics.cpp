@@ -111,9 +111,12 @@ namespace SDLFramework {
 			std::cerr << "Unable to create renderer! SDL Error: " << SDL_GetError() << std::endl;
 			return false;
 		}
-
+		
+		//Temporairily change background color to white!
+		SDL_SetRenderDrawColor(mRenderer, 0xFF, 0xFF, 0xFF, 0xFF); 
 		int flags = IMG_INIT_PNG;
-		if (!(IMG_Init(flags) & flags)) {
+		if (!(IMG_Init(flags) & flags)){
+			
 			std::cerr << "Unable to initialize SDL_image! IMG Error: " << IMG_GetError() << std::endl;
 			return false;
 		}

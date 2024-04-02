@@ -45,6 +45,7 @@ public:
 	StartScreen();
 	~StartScreen();
 
+	void ResetAnimation();
 	void ChangeSelectedMode(int change);
 
 	void Update() override;
