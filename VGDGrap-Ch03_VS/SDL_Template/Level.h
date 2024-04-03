@@ -1,6 +1,7 @@
 #pragma once
 #include "PlaySideBar.h"
 #include "Player.h"
+#include "Enemy.h"
 
 class Level : public GameEntity {
 public:
@@ -36,6 +37,7 @@ private:
 	float mReadyLabelOffScreen;
 
 	Player* mPlayer;
+	Enemy* mEnemy;
 
 	void StartStage();
 

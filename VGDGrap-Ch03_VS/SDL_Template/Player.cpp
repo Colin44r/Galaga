@@ -22,6 +22,10 @@ Player::Player() {
 	mDeathAnimation->Parent(this);
 	mDeathAnimation->Position(Vec2_Zero);
 	mDeathAnimation->SetWrapMode(AnimatedTexture::Once);
+
+	for (int i = 0; i < MAX_BULLETS; ++i) {
+		mBullets[i] = new Bullet();
+	}
 }
 
 Player::~Player() {
@@ -34,6 +38,23 @@ Player::~Player() {
 
 	delete mDeathAnimation;
 	mDeathAnimation = nullptr;
+
+	for (int i = 0; i < MAX_BULLETS; ++i) {
+		delete mBullets[i];
+		mBullets[i] = nullptr;
+	}
+}
+
+void Player::HandleFiring() {
+	if (mInput->KeyPressed(SDL_SCANCODE_SPACE)) {
+		for (int i = 0; i < MAX_BULLETS; ++i) {
+			if (!mBullets[i]->Active()) {
+				mBullets[i]->Fire(Position());
+				mAudio->PlaySFX("SFX/Fire.wav", 0, -1);
+				break;
+			}
+		}
+	}
 }
 
 void Player::Visible(bool visible) {
@@ -91,7 +112,12 @@ void Player::Update() {
 	else {
 		if (Active()) {
 			HandleMovement();
+			HandleFiring();
 		}
+	}
+
+	for (int i = 0; i < MAX_BULLETS; ++i) {
+		mBullets[i]->Update();
 	}
 }
 
@@ -103,5 +129,9 @@ void Player::Render() {
 		else {
 			mShip->Render();
 		}
+	}
+
+	for (int i = 0; i < MAX_BULLETS; ++i) {
+		mBullets[i]->Render();
 	}
 }
