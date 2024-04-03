@@ -31,6 +31,7 @@ private:
 	Texture* mLogo;
 	Texture* mLetterOne;
 	Texture* mLetterTwo;
+	Texture* mUltraGames;
 	std::string QBertSpriteSheet = "QBert General Sprites.png";
 
 public:

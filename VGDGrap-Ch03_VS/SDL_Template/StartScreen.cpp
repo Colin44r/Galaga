@@ -17,7 +17,7 @@ StartScreen::StartScreen() {
 	mTradeMark1 = new Texture("TRADEMARK OF ULTRA SOFTWARE", "emulogic.ttf", 32, { 230, 230, 230 });
 	mTradeMark2 = new Texture("CORPORATION.", "emulogic.ttf", 32, { 230, 230, 230 });
 	mLogo = new Texture("QBert General Sprites.png", 128, 31, 95, 16);
-	
+	mUltraGames = new Texture("UltraGames.png", 5,1,467,112);
 
 	mBottomBar->Parent(this);
 	mLTD->Parent(mBottomBar);
@@ -27,7 +27,7 @@ StartScreen::StartScreen() {
 	mUltra->Parent(mBottomBar);
 	mTradeMark1->Parent(mBottomBar);
 	mTradeMark2->Parent(mBottomBar);
-	
+	mUltraGames->Parent(mBottomBar);
 
 	mTopBar->Parent(this);
 	
@@ -71,6 +71,7 @@ StartScreen::StartScreen() {
 	mTradeMark1->Position(0.0f, 190.0f);
 	mTradeMark2->Position(-230.0f, 230.0f);
 	mLogo->Position(550.0f, 250.0);
+	mUltraGames->Position(40.0f,-550.0);
 
 	mLogo->Scale(Vector2 (6.5f, 9.5f));
 	mQBertCursor->Scale(Vector2(3.5f, 3.5f));
@@ -109,7 +110,8 @@ StartScreen::~StartScreen() {
 	mLetterOne = nullptr;
 	delete mLetterTwo;
 	mLetterTwo = nullptr;
-
+	delete mUltraGames;
+	mUltraGames = nullptr;
 
 	mTimer = nullptr;
 	mInputManager = nullptr;
@@ -133,6 +135,7 @@ void StartScreen::Render() {
 	mLogo->Render();
 	mLetterOne->Render();
 	mLetterTwo->Render();
+	mUltraGames->Render();
 
 	mPlayerSelect->Render();
 	mTM->Render();
