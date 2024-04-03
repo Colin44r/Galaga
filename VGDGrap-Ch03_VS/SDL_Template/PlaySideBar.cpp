@@ -138,3 +138,11 @@ void PlaySideBar::Render() {
 
 
 	}
+
+	void PlaySideBar::Render() {
+		mTwoPlayerMode->Render();
+
+		if (mTwoPlayerModeVisible) {
+			mTwoPlayerMode->Render();
+		}
+	}
