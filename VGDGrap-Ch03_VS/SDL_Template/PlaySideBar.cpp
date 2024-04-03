@@ -122,4 +122,19 @@ void PlaySideBar::Render() {
 	if (mTotalShips > MAX_SHIP_TEXTURES) {
 		mTotalShipsLabel->Render();
 	}
-}
+}void PlaySideBar::Update() {
+	mBlinkTimer += mTimer->DeltaTime();
+	if (mBlinkTimer >= mBlinkInterval) {
+		mOnePlayerModeVisible = !mOnePlayerModeVisible;
+		mBlinkTimer = 0.0f;
+		mBlinkTimer += mTimer->DeltaTime();
+
+		if (mBlinkTimer >= mBlinkInterval) {
+			mTwoPlayerModeVisible = !mTwoPlayerModeVisible;
+			mBlinkTimer = 0.0f;
+			mBlinkTimer += mTimer->DeltaTime();
+
+		}
+
+
+	}
