@@ -16,6 +16,7 @@ private:
 
 	StartScreen* mStartScreen;
 	PlayScreen* mPlayScreen;
+
 public:
 	static ScreenManager* Instance();
 	static void Release();

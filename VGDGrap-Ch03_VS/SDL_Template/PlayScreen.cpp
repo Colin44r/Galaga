@@ -44,6 +44,9 @@ void PlayScreen::Update() {
 		}
 		else {
 			mLevel->Update();
+			if (mLevel->State() == Level::Finished) {
+				mLevelStarted = false;
+			}
 		}
 
 		if (mCurrentStage > 0) {
@@ -100,4 +103,8 @@ void PlayScreen::StartNextLevel() {
 
 	delete mLevel;
 	mLevel = new Level(mCurrentStage, mSideBar, mPlayer);
+}
+
+bool PlayScreen::GameOver() {
+	return !mLevelStarted ? false : (mLevel->State() == Level::GameOver);
 }

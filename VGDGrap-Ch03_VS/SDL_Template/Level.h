@@ -3,6 +3,9 @@
 #include "Player.h"
 
 class Level : public GameEntity {
+public:
+	enum LevelStates { Running, Finished, GameOver };
+
 private:
 	Timer* mTimer;
 	PlaySideBar* mSideBar;
@@ -11,6 +14,17 @@ private:
 	bool mStageStarted;
 
 	float mLabelTimer;
+
+	bool mPlayerHit;
+	float mRespawnDelay;
+	float mRespawnTimer;
+	float mRespawnLabelOnScreen;
+
+	Texture* mGameOverLabel;
+	float mGameOverDelay;
+	float mGameOverTimer;
+	float mGameOverLabelOnScreen;
+
 
 	Texture* mStageLabel;
 	Scoreboard* mStageNumber;
@@ -25,10 +39,17 @@ private:
 
 	void StartStage();
 
+	LevelStates mCurrentState;
+
+	void HandleStartLabels();
+	void HandleCollisions();
+	void HandlePlayerDeath();
+
 public:
-	enum LevelStates { Running, Finished, GameOver };
 	Level(int stage, PlaySideBar* side, Player* player);
 	~Level();
+
+	LevelStates State();
 
 	void Update() override;
 	void Render() override;
