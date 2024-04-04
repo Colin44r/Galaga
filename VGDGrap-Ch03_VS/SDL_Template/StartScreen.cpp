@@ -129,7 +129,7 @@ StartScreen::~StartScreen() {
 void StartScreen::Update() {
 	if (mStartTimer == true) {
 		mBlinkTimer += mTimer->DeltaTime();
-		std::cout << NumOfBlink;
+		//std::cout << NumOfBlink;
 		if (mBlinkTimer >= mBlinkInterval) {
 			mOnePlayerModeVisible = !mOnePlayerModeVisible;
 			NumOfBlink += 1;

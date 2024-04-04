@@ -12,7 +12,13 @@ private:
 	AudioManager* mAudio;
 	GameEntity* mTopPart;
 	PlaySideBar* mSideBar;
-	Texture* mControlConfigSheet;
+	Texture* mControlSheet;
+	Texture* mControlSheetFace1;
+	Texture* mControlSheetFace2;
+	Texture* mControlSheetFace3;
+	Texture* mNumber1;
+	Texture* mNumber2;
+
 
 public:
 	PlayScreen();
