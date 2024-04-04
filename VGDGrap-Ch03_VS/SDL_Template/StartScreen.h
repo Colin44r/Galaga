@@ -12,7 +12,16 @@ private:
 	GameEntity* mTopBar;
 	GameEntity* mBottomBar;
 	
+	bool mStartTimer = false;
+	bool mBlinkingDone = false;
+	bool mOnePlayerModeVisible=true;
+	bool mTwoPlayerModeVisible=true;
+	float mBlinkTimer;
+	float mBlinkInterval = 0.5;
 
+	int NumOfBlink = 0;
+
+	Texture* mLogoR;
 	GameEntity* mPlayerModes;
 	Texture* mOnePlayerMode;
 	Texture* mTwoPlayerMode;
@@ -35,6 +44,7 @@ private:
 	std::string QBertSpriteSheet = "QBert General Sprites.png";
 
 public:
+	bool GetBlinkingDone();
 	StartScreen();
 	~StartScreen();
 	void ChangeSelectedMode(int change);

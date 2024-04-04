@@ -1,4 +1,5 @@
 #include "PlaySideBar.h"
+#include "StartScreen.h"
 
 PlaySideBar::PlaySideBar() {
 	mTimer = Timer::Instance();
@@ -122,27 +123,5 @@ void PlaySideBar::Render() {
 	if (mTotalShips > MAX_SHIP_TEXTURES) {
 		mTotalShipsLabel->Render();
 	}
-}void PlaySideBar::Update() {
-	mBlinkTimer += mTimer->DeltaTime();
-	if (mBlinkTimer >= mBlinkInterval) {
-		mOnePlayerModeVisible = !mOnePlayerModeVisible;
-		mBlinkTimer = 0.0f;
-		mBlinkTimer += mTimer->DeltaTime();
+}
 
-		if (mBlinkTimer >= mBlinkInterval) {
-			mTwoPlayerModeVisible = !mTwoPlayerModeVisible;
-			mBlinkTimer = 0.0f;
-			mBlinkTimer += mTimer->DeltaTime();
-
-		}
-
-
-	}
-
-	void PlaySideBar::Render() {
-		mTwoPlayerMode->Render();
-
-		if (mTwoPlayerModeVisible) {
-			mTwoPlayerMode->Render();
-		}
-	}

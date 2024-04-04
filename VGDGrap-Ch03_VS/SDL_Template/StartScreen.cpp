@@ -18,6 +18,7 @@ StartScreen::StartScreen() {
 	mTradeMark2 = new Texture("CORPORATION.", "emulogic.ttf", 32, { 230, 230, 230 });
 	mLogo = new Texture("QBert General Sprites.png", 128, 31, 95, 16);
 	mUltraGames = new Texture("UltraGames.png", 5,1,467,112);
+	mLogoR = new Texture("LogoR.png", 0, 0, 70, 62);
 
 	mBottomBar->Parent(this);
 	mLTD->Parent(mBottomBar);
@@ -28,6 +29,8 @@ StartScreen::StartScreen() {
 	mTradeMark1->Parent(mBottomBar);
 	mTradeMark2->Parent(mBottomBar);
 	mUltraGames->Parent(mBottomBar);
+
+
 
 	mTopBar->Parent(this);
 	
@@ -72,6 +75,7 @@ StartScreen::StartScreen() {
 	mTradeMark2->Position(-230.0f, 230.0f);
 	mLogo->Position(550.0f, 250.0);
 	mUltraGames->Position(40.0f,-550.0);
+	mLogoR->Position(875.0f, 150.0);
 
 	mLogo->Scale(Vector2 (6.5f, 9.5f));
 	mQBertCursor->Scale(Vector2(3.5f, 3.5f));
@@ -112,12 +116,47 @@ StartScreen::~StartScreen() {
 	mLetterTwo = nullptr;
 	delete mUltraGames;
 	mUltraGames = nullptr;
+	delete mLogoR;
+	mLogoR = nullptr;
+
 
 	mTimer = nullptr;
 	mInputManager = nullptr;
 }
 
 void StartScreen::Update() {
+	if (mStartTimer == true) {
+		mBlinkTimer += mTimer->DeltaTime();
+		std::cout << NumOfBlink;
+		if (mBlinkTimer >= mBlinkInterval) {
+			mOnePlayerModeVisible = !mOnePlayerModeVisible;
+			NumOfBlink += 1;
+			if (NumOfBlink >= 7) {
+				mBlinkingDone = true;
+			}
+			mBlinkTimer = 0.0f;
+			mBlinkTimer += mTimer->DeltaTime();
+
+			if (mBlinkTimer >= mBlinkInterval) {
+				mTwoPlayerModeVisible = !mTwoPlayerModeVisible;
+				mBlinkTimer = 0.0f;
+				mBlinkTimer += mTimer->DeltaTime();
+
+			}
+		}
+	}
+	if (mInputManager->KeyPressed(SDL_SCANCODE_RETURN) && NumOfBlink == 0) {
+		//NumOfBlink = 1;
+		mStartTimer = true;
+		//if (NumOfBlink > 0 && NumOfBlink <= 5) {
+		
+		//}
+	
+
+
+	}
+	
+
 	if (mInputManager->KeyPressed(SDL_SCANCODE_DOWN)) {
 		ChangeSelectedMode(1);
 	}
@@ -126,9 +165,24 @@ void StartScreen::Update() {
 	}
 }
 
+bool StartScreen::GetBlinkingDone() {
+	return mBlinkingDone;
+}
+
+	
+	
 void StartScreen::Render() {
-	mOnePlayerMode->Render();
-	mTwoPlayerMode->Render();
+	
+
+	if (mTwoPlayerModeVisible) {
+		mTwoPlayerMode->Render();
+	}
+
+
+	if (mOnePlayerModeVisible) {
+		mOnePlayerMode->Render();
+	}
+	
 	mQBertCursor->Render();
 	mRights->Render();
 	mLTD->Render();
@@ -136,6 +190,7 @@ void StartScreen::Render() {
 	mLetterOne->Render();
 	mLetterTwo->Render();
 	mUltraGames->Render();
+	mLogoR->Render();
 
 	mPlayerSelect->Render();
 	mTM->Render();

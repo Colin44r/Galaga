@@ -39,7 +39,7 @@ void ScreenManager::Update() {
 	case ScreenManager::Start:
 		mStartScreen->Update();
 
-		if (mInput->KeyPressed(SDL_SCANCODE_RETURN)) {
+		if (mStartScreen->GetBlinkingDone()) {
 			mCurrentScreen = Play;
 			std::cout << "Changing to PlayScreen";
 		}
