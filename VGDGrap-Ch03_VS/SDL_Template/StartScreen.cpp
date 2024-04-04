@@ -19,6 +19,8 @@ StartScreen::StartScreen() {
 	mLogo = new Texture("QBert General Sprites.png", 128, 31, 95, 16);
 	mUltraGames = new Texture("UltraGames.png", 5,1,467,112);
 	mLogoR = new Texture("LogoR.png", 0, 0, 70, 62);
+	
+
 
 	mBottomBar->Parent(this);
 	mLTD->Parent(mBottomBar);

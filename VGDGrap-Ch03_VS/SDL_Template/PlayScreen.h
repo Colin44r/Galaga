@@ -10,8 +10,9 @@ class PlayScreen : public GameEntity {
 private:
 	Timer* mTimer;
 	AudioManager* mAudio;
-
+	GameEntity* mTopPart;
 	PlaySideBar* mSideBar;
+	Texture* mControlConfigSheet;
 
 public:
 	PlayScreen();
