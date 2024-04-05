@@ -2,11 +2,11 @@
 
 PlayScreen::PlayScreen() {
 	mTimer = Timer::Instance();
-	mAudio = AudioManager::Instance();
+	//mAudio = AudioManager::Instance();
 
-	mSideBar = new PlaySideBar();
-	mSideBar->Parent(this);
-	mSideBar->Position(Graphics::SCREEN_WIDTH * 0.87, Graphics::SCREEN_HEIGHT * 0.05);
+	//mSideBar = new PlaySideBar();
+	//mSideBar->Parent(this);
+	//mSideBar->Position(Graphics::SCREEN_WIDTH * 0.87, Graphics::SCREEN_HEIGHT * 0.05);
 
 
 	mControlSheet = new Texture("ControlConfigSheet.png", 0, 0, 256, 240);
@@ -33,12 +33,12 @@ PlayScreen::PlayScreen() {
 
 PlayScreen::~PlayScreen() {
 	mTimer = nullptr;
-	mAudio = nullptr;
+	//mAudio = nullptr;
 
 	delete mControlSheet;
 	mControlSheet = nullptr;
-	delete mSideBar;
-	mSideBar = nullptr;
+	/*delete mSideBar;
+	mSideBar = nullptr;*/
 	delete mControlSheetFace1;
 	mControlSheetFace1 = nullptr;
 	delete mControlSheetFace2;
@@ -57,7 +57,7 @@ PlayScreen::~PlayScreen() {
 }
 
 void PlayScreen::Update() {
-	mSideBar->Update();
+	//mSideBar->Update();
 	mControlSheet->Update();
 	mControlSheetFace1->Update();
 	mControlSheetFace2->Update();
@@ -70,7 +70,7 @@ void PlayScreen::Update() {
 }
 
 void PlayScreen::Render() {
-	mSideBar->Render();
+	//mSideBar->Render();
 	mControlSheet->Render();
 	mControlSheetFace1->Render();
 	mControlSheetFace2->Render();
