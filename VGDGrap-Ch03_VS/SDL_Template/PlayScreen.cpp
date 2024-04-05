@@ -32,25 +32,31 @@ PlayScreen::PlayScreen() {
 }
 
 PlayScreen::~PlayScreen() {
-	mTimer = nullptr;
+	
 	//mAudio = nullptr;
 
 	delete mControlSheet;
 	mControlSheet = nullptr;
+
 	/*delete mSideBar;
 	mSideBar = nullptr;*/
+	
 	delete mControlSheetFace1;
 	mControlSheetFace1 = nullptr;
+	
 	delete mControlSheetFace2;
 	mControlSheetFace2 = nullptr;
+	
 	delete mControlSheetFace3;
 	mControlSheetFace3 = nullptr;
+	
 	delete mNumber1;
 	mNumber1 = nullptr;
+	
 	delete mNumber2;
 	mNumber2 = nullptr;
 
-
+	mTimer = nullptr;
 
 
 
