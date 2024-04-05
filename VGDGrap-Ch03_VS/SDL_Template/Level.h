@@ -3,7 +3,8 @@
 #include "Player.h"
 #include "Enemy.h"
 
-class Level : public GameEntity {
+class Level : public GameEntity
+{
 public:
 	enum LevelStates { Running, Finished, GameOver };
 
@@ -16,17 +17,6 @@ private:
 
 	float mLabelTimer;
 
-	bool mPlayerHit;
-	float mRespawnDelay;
-	float mRespawnTimer;
-	float mRespawnLabelOnScreen;
-
-	Texture* mGameOverLabel;
-	float mGameOverDelay;
-	float mGameOverTimer;
-	float mGameOverLabelOnScreen;
-
-
 	Texture* mStageLabel;
 	Scoreboard* mStageNumber;
 	float mStageLabelOnScreen;
@@ -37,22 +27,31 @@ private:
 	float mReadyLabelOffScreen;
 
 	Player* mPlayer;
-	Enemy* mEnemy;
+	bool mPlayerHit;
+	float mRespawnDelay;
+	float mRespawnTimer;
+	float mRespawnLabelOnScreen;
 
-	void StartStage();
+	Texture* mGameOverLabel;
+	float mGameOverDelay;
+	float mGameOverTimer;
+	float mGameOverLabelOnScreen;
 
 	LevelStates mCurrentState;
 
+	Enemy* mEnemy;
+
+	void StartStage();
 	void HandleStartLabels();
 	void HandleCollisions();
 	void HandlePlayerDeath();
 
 public:
-	Level(int stage, PlaySideBar* side, Player* player);
+	Level(int stage, PlaySideBar* sideBar, Player* player);
 	~Level();
 
 	LevelStates State();
 
-	void Update() override;
-	void Render() override;
+	void Update();
+	void Render();
 };

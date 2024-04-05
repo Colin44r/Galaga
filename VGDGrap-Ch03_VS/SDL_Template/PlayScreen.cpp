@@ -16,6 +16,8 @@ PlayScreen::PlayScreen() {
 	mLevelStartDelay = 1.0f;
 	mLevelStarted = false;
 	mPlayer = nullptr;
+
+	Enemy::CreatePaths();
 }
 
 PlayScreen::~PlayScreen() {
