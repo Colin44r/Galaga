@@ -18,8 +18,9 @@ PlayScreen::PlayScreen() {
 
 
 	mControlSheet->Position(600.0f, 400.0);
-//	mControlSheetFace1->Position(100.0f, 500.0);
 	//For animation to face textures vvv
+	// 
+	//	mControlSheetFace1->Position(100.0f, 500.0);
 	//mControlSheetFace2->Position(400.0f, 500.0);
 	//mControlSheetFace3->Position(300.0f, 500.0);
 	//mNumber1->Position(100.0f, 100.0);
@@ -61,7 +62,7 @@ PlayScreen::~PlayScreen() {
 void PlayScreen::Update() {
 	
 	mControlSheet->Update();
-	mControlSheetFace1->Update();
+	//mControlSheetFace1->Update();
 	//mControlSheetFace2->Update();
 	//mControlSheetFace3->Update();
 //	mNumber1->Update();
