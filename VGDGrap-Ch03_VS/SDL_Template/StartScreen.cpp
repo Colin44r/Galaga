@@ -77,11 +77,11 @@ StartScreen::StartScreen() {
 	mTradeMark2->Position(-230.0f, 230.0f);
 	mLogo->Position(550.0f, 250.0);
 	mUltraGames->Position(40.0f,-550.0);
-	mLogoR->Position(875.0f, 150.0);
+	mLogoR->Position(875.0f, 175.0);
 
 	mLogo->Scale(Vector2 (6.5f, 9.5f));
 	mQBertCursor->Scale(Vector2(3.5f, 3.5f));
-	
+	mLogoR->Scale(Vector2(0.5f, 0.5f));
 }
 
 StartScreen::~StartScreen() {

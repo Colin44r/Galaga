@@ -22,8 +22,8 @@ PlayScreen::PlayScreen() {
 	//For animation to face textures vvv
 	//mControlSheetFace2->Position(400.0f, 500.0);
 	//mControlSheetFace3->Position(300.0f, 500.0);
-	mNumber1->Position(100.0f, 100.0);
-	mNumber2->Position(100.0f, 100.0);
+	//mNumber1->Position(100.0f, 100.0);
+	//mNumber2->Position(100.0f, 100.0);
 
 	mControlSheet->Scale(Vector2(4.75f, 4.15f));
 
@@ -31,6 +31,7 @@ PlayScreen::PlayScreen() {
 
 PlayScreen::~PlayScreen() {
 	
+
 
 	delete mControlSheet;
 	mControlSheet = nullptr;
@@ -45,11 +46,11 @@ PlayScreen::~PlayScreen() {
 	//delete mControlSheetFace3;
 	//mControlSheetFace3 = nullptr;
 	
-	delete mNumber1;
-	mNumber1 = nullptr;
+	//delete mNumber1;
+	//mNumber1 = nullptr;
 	
-	delete mNumber2;
-	mNumber2 = nullptr;
+	//delete mNumber2;
+	//mNumber2 = nullptr;
 
 	mTimer = nullptr;
 
@@ -63,8 +64,8 @@ void PlayScreen::Update() {
 	mControlSheetFace1->Update();
 	//mControlSheetFace2->Update();
 	//mControlSheetFace3->Update();
-	mNumber1->Update();
-	mNumber2->Update();
+//	mNumber1->Update();
+	//mNumber2->Update();
 
 
 
@@ -76,8 +77,8 @@ void PlayScreen::Render() {
 	/*mControlSheetFace1->Render();*/
 	//mControlSheetFace2->Render();
 	//mControlSheetFace3->Render();
-	mNumber1->Render();
-	mNumber2->Render();
+	//mNumber1->Render();
+	//mNumber2->Render();
 
 
 
