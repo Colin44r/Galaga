@@ -8,14 +8,15 @@ PlayScreen::PlayScreen() {
 	//mSideBar->Parent(this);
 	//mSideBar->Position(Graphics::SCREEN_WIDTH * 0.87, Graphics::SCREEN_HEIGHT * 0.05);
 
-
-	mControlSheet = new Texture("ControlConfigSheet.png", 0, 0, 256, 240);
-	mControlSheetFace1 = new Texture("ControlConfigSheet.png", 6, 150, 98, 240);
-	mControlSheetFace2 = new Texture("ControlConfigSheet.png", 259, 151, 345, 240);
-	mControlSheetFace3 = new Texture("ControlConfigSheet.png", 347, 151, 433, 240);
-	mNumber1 = new Texture("ControlConfigSheet.png", 265.56, 24.14, 271, 32);
-	mNumber2 = new Texture("ControlConfigSheet.png", 273, 24, 281, 32);
 	
+	mControlSheet = new Texture("TuturSheet.png", 0, 0, 256, 240);
+	mControlSheetFace1 = new Texture("TuturSheet.png", 6, 150, 98, 240);
+	mControlSheetFace2 = new Texture("TuturSheet.png", 259, 151, 345, 240);
+	mControlSheetFace3 = new Texture("TuturSheet.png", 347, 151, 433, 240);
+	mNumber1 = new Texture("TuturSheet.png", 265.56, 24.14, 271, 32);
+	mNumber2 = new Texture("TuturSheet.png", 273, 24, 281, 32);
+
+	mTopPart = new GameEntity();
 	mTopPart->Parent(this);
 	mControlSheet->Parent(mTopPart);
 
