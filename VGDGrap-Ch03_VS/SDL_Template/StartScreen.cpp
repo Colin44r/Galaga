@@ -81,6 +81,7 @@ StartScreen::StartScreen() {
 
 	mLogo->Scale(Vector2 (6.5f, 9.5f));
 	mQBertCursor->Scale(Vector2(3.5f, 3.5f));
+	
 }
 
 StartScreen::~StartScreen() {

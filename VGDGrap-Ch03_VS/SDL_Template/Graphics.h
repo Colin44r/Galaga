@@ -16,7 +16,7 @@ namespace SDLFramework {
 
 	class Graphics {
 	public:
-		static const short SCREEN_WIDTH = 1024;
+		static const short SCREEN_WIDTH = 1200;
 		static const short SCREEN_HEIGHT = 896;
 
 	private:
