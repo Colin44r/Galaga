@@ -1,4 +1,3 @@
-#pragma once
 #ifndef __BEZIERPATH_H
 #define __BEZIERPATH_H
 #include "MathHelper.h"

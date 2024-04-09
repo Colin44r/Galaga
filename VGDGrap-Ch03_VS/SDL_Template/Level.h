@@ -1,57 +1,41 @@
 #pragma once
-#include "PlaySideBar.h"
-#include "Player.h"
-#include "Enemy.h"
+#include "GameEntity.h"
+#include "Timer.h"
 
-class Level : public GameEntity
-{
-public:
-	enum LevelStates { Running, Finished, GameOver };
+using namespace SDLFramework;
 
+class Formation : public GameEntity {
 private:
 	Timer* mTimer;
-	PlaySideBar* mSideBar;
 
-	int mStage;
-	bool mStageStarted;
+	//side-to-side movement while we are spawning
+	float mOffsetAmount;
+	float mOffsetTimer;
+	float mOffsetDelay;
+	int mOffsetCounter;
+	int mOffsetDirection;
 
-	float mLabelTimer;
+	//breathing animation when the formation is "locked"
+	float mSpreadTimer;
+	float mSpreadDelay;
+	int mSpreadCounter;
+	int mSpreadDirection;
 
-	Texture* mStageLabel;
-	Scoreboard* mStageNumber;
-	float mStageLabelOnScreen;
-	float mStageLabelOffScreen;
+	Vector2 mGridSize;
 
-	Texture* mReadyLabel;
-	float mReadyLabelOnScreen;
-	float mReadyLabelOffScreen;
-
-	Player* mPlayer;
-	bool mPlayerHit;
-	float mRespawnDelay;
-	float mRespawnTimer;
-	float mRespawnLabelOnScreen;
-
-	Texture* mGameOverLabel;
-	float mGameOverDelay;
-	float mGameOverTimer;
-	float mGameOverLabelOnScreen;
-
-	LevelStates mCurrentState;
-
-	Enemy* mEnemy;
-
-	void StartStage();
-	void HandleStartLabels();
-	void HandleCollisions();
-	void HandlePlayerDeath();
+	bool mLocked;
 
 public:
-	Level(int stage, PlaySideBar* sideBar, Player* player);
-	~Level();
+	Formation();
+	~Formation();
 
-	LevelStates State();
+	Vector2 GridSize();
+
+	int GetTick();
+
+	void Lock();
+
+	bool Locked();
 
 	void Update();
-	void Render();
 };
